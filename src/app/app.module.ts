@@ -16,6 +16,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { HomeComponent } from './components/home/home.component';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptors';
+import { DetailsComponent } from './components/details/details.component';
 
 
 
@@ -24,6 +25,7 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptors
     AppComponent,
     SearchBarComponent,
     HomeComponent,
+    DetailsComponent,
 
   ],
   imports: [
