@@ -13,6 +13,9 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { HomeComponent } from './components/home/home.component';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptors';
 
 
 
@@ -20,6 +23,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
   declarations: [
     AppComponent,
     SearchBarComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -34,18 +38,18 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatTabsModule,
     MatIconModule,
   ],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: HttpHeadersInterceptor,
-  //     multi: true,
-  //   },
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: HttpErrorsInterceptor,
-  //     multi: true,
-  //   },
-  // ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
