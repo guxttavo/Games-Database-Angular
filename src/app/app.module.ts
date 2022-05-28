@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
@@ -18,7 +19,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent
+    SearchBarComponent,
 
   ],
   imports: [
@@ -32,6 +33,19 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
-  ]
+  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: HttpHeadersInterceptor,
+  //     multi: true,
+  //   },
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: HttpErrorsInterceptor,
+  //     multi: true,
+  //   },
+  // ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
