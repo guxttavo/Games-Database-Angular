@@ -4,20 +4,22 @@ import { Subscription } from 'rxjs';
 import { Game } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
-
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
   gameRating = 0;
   gameId!: string;
   game!: Game;
   routeSub!: Subscription;
-  gamesub!: Subscription;
+  gameSub!: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private httpService: HttpService
+  ) { }
 
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
@@ -38,7 +40,6 @@ export class DetailsComponent implements OnInit {
       });
   }
 
-
   getColor(value: number): string {
     if (value > 75) {
       return '#5ee432';
@@ -51,7 +52,6 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-
   ngOnDestroy(): void {
     if (this.gameSub) {
       this.gameSub.unsubscribe();
@@ -61,6 +61,5 @@ export class DetailsComponent implements OnInit {
       this.routeSub.unsubscribe();
     }
   }
-
 
 }
