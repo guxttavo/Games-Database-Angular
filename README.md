@@ -1,4 +1,4 @@
 
 <p align="center">
-  <img width="1000" src="gamesDB.gif">
+  <img width="1000" src="RegisterClient1.gif">
 </p>
